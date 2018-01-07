@@ -21,10 +21,10 @@
 					initialPage:"page1"
 				});
 				var page1 = new sap.m.Page("page1",{
-					title:"Hello World",
+					title: "Hello World",
 					showNavButton: false,
-					content:new sap.m.Button({
-						text:"Go To Page 2",
+					content: new sap.m.Button({
+						text: "gsd",
 						press:function(){
 							app.to("page2");
 						}
@@ -34,10 +34,11 @@
 					title:"Hello World2",
 					showNavButton:true,
 					navButtonPress:function(){
-						app.back();					}
+						app.back();	
+					}	
 				});
 				
-				add.addPage(page1).addPage(page2);
+				app.addPage(page1).addPage(page2);
 				app.placeAt("content");
 			});
 		</script>
