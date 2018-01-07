@@ -10,21 +10,35 @@
 		<script id="sap-ui-bootstrap"
 			src="../../resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m"
-			data-sap-ui-theme="sap_belize"
-			data-sap-ui-compatVersion="edge"
-			data-sap-ui-resourceroots='{"test": ""}'>
+			data-sap-ui-theme="sap_belize">
 		</script>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-
-		<script>
+  
+		<script type="text/javascript"> 
 			sap.ui.getCore().attachInit(function() {
-				new sap.m.Shell({
-					app: new sap.ui.core.ComponentContainer({
-						height : "100%",
-						name : "test"
+				var app = new sap.m.App("myApp",{ 
+					initialPage:"page1"
+				});
+				var page1 = new sap.m.Page("page1",{
+					title:"Hello World",
+					showNavButton: false,
+					content:new sap.m.Button({
+						text:"Go To Page 2",
+						press:function(){
+							app.to("page2");
+						}
 					})
-				}).placeAt("content");
+				});
+				var page2 = new sap.m.Page("page2",{
+					title:"Hello World2",
+					showNavButton:true,
+					navButtonPress:function(){
+						app.back();					}
+				});
+				
+				add.addPage(page1).addPage(page2);
+				app.placeAt("content");
 			});
 		</script>
 	</head>
